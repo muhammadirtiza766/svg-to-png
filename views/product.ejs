@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= title %></title>
+
+    <style>
+      .box {
+        display: inline-block;
+        padding: 10px;
+      }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .green {
+        background-color: green;
+      }
+      #name-color {
+        padding: 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #333;
+      }
+      #name-color:hover {
+        cursor:grab;
+      }
+    </style>
+  </head><%= name %>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <h2>Hello <span id="name-color"><%= name %></span></h2>
+
+    <hr>
+    <div class="box red">Red</div>
+    <div class="box blue">Blue</div>
+    <div class="box green">Green</div>
+    <br><br>
+
+    <form action="/product" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Name" name="name">
+    </form>
+    <script>
+      var colors = ['red', 'blue', 'green'];
+
+      document.querySelectorAll('.box').forEach(function(btn, i) {
+        btn.addEventListener('click', function() {
+          document.getElementById('name-color').style.backgroundColor = colors[i];
+          document.getElementById('name-color').style.color = '#fff';
+        });
+      });
+    </script>
+  </body>
+</html>
